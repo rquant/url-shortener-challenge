@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 # rspec
 gem 'rspec'
 gem 'rspec-rails'
+gem 'rspec-its'
+gem 'shoulda-matchers'
 
 gem 'interactor', '~> 3.0'
 gem 'interactor-rails', '2.0.2'
