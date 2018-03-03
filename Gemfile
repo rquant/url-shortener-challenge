@@ -39,6 +39,7 @@ group :test do
   gem 'rspec-rails'
   gem 'rspec-its'
   gem 'shoulda-matchers'
+  gem 'rails-controller-testing', '1.0.0'
 
   gem 'factory_bot_rails'
 end

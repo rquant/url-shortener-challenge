@@ -4,6 +4,11 @@ describe ShortUrl, type: :model do
 
   describe '.validations' do
     subject { build(:short_url) }
+
+    it { is_expected.to validate_presence_of :key }
+    it { is_expected.to validate_uniqueness_of :key }
+    it { is_expected.to validate_length_of :key }
+    it { is_expected.to validate_presence_of :original_url }
   end
 
   describe '#generate_key' do
