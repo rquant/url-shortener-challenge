@@ -34,10 +34,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # rspec
-gem 'rspec'
-gem 'rspec-rails'
-gem 'rspec-its'
-gem 'shoulda-matchers'
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'rspec-its'
+  gem 'shoulda-matchers'
+
+  gem 'factory_bot_rails'
+end
 
 gem 'interactor', '~> 3.0'
 gem 'interactor-rails', '2.0.2'
