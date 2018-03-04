@@ -1,14 +1,14 @@
 class ShortUrl < ApplicationRecord
   RADIX = 36.freeze
-  KEY_LENGTH = 5.freeze
+  SLUG_LENGTH = 5.freeze
 
-  validates :key, presence: true, uniqueness: true, length: {is: 5}
+  validates :slug, presence: true, uniqueness: true, length: {is: 5}
   validates :original_url, presence: true
 
-  def self.generate_key
+  def self.generate_slug
     loop do
-      key = rand(RADIX ** KEY_LENGTH).to_s(RADIX)
-      break key unless where(key: key).exists?
+      slug = rand(RADIX ** SLUG_LENGTH).to_s(RADIX)
+      break slug unless where(slug: slug).exists?
     end
   end
 end

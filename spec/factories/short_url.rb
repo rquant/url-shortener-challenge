@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :short_url do
-    key 'abcde'
+    slug 'abcde'
     original_url 'www.example.com/testurl'
   end
 end
