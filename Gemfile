@@ -41,6 +41,11 @@ group :test do
   gem 'shoulda-matchers'
   gem 'rails-controller-testing', '1.0.0'
 
+  # runners
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'selenium-webdriver'
+
   gem 'factory_bot_rails'
 end
 
