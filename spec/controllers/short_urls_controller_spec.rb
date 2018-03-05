@@ -17,4 +17,27 @@ describe ShortUrlsController, type: :controller do
       expect(interactor).to have_received(:call).with(params)
     end
   end
+
+  describe 'GET redirect_to_original' do
+    let(:short_url) { create(:short_url) }
+    let(:original_url) { short_url.original_url }
+
+    before { get :redirect_to_original, slug: slug }
+
+    context 'slug belongs to short url' do
+      let(:slug) { short_url.slug }
+
+      it { is_expected.to redirect_to(original_url) }
+    end
+
+    context 'slug is not found' do
+      let(:slug) { 'wrong_slug' }
+
+      it { is_expected.to render_template(:home) }
+
+      it 'sets flash error' do
+        expect(flash[:error]).to be_present
+      end
+    end
+  end
 end
