@@ -1,8 +1,12 @@
 class ShortUrlsController < ApplicationController
   def create
     result = CreateShortUrl.call(original_url: params[:original_url])
-    @short_url = result.short_url
 
+    if result.success?
+      @short_url = result.short_url
+    else
+      flash.now[:error] = result.message
+    end
     render :home
   end
 
