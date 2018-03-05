@@ -5,6 +5,8 @@ class CreateShortUrl
 
   def call
     context.short_url = create_short_url
+  rescue ActiveRecord::RecordInvalid => error
+    context.fail! message: error.record
   end
 
   private
