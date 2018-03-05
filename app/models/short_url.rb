@@ -4,7 +4,8 @@ class ShortUrl < ApplicationRecord
 
   validates :slug, presence: true,
             uniqueness: true, length: {is: 5}
-  validates :original_url, presence: true
+  validates :original_url,
+            presence: true, format: URI::regexp
 
   def self.generate_slug
     loop do

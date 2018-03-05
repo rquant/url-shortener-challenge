@@ -9,6 +9,8 @@ describe ShortUrl, type: :model do
     it { is_expected.to validate_uniqueness_of :slug }
     it { is_expected.to validate_length_of(:slug).is_equal_to(5) }
     it { is_expected.to validate_presence_of :original_url }
+    it { is_expected.to allow_value('http://foo.com').for(:original_url) }
+    it { is_expected.not_to allow_value('www.foo.com').for(:original_url) }
   end
 
   describe '#generate_slug' do
