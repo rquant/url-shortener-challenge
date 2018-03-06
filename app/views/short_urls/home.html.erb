@@ -1,9 +1,15 @@
 <h1>Ryan's fancy URL Shortener</h1>
-<% if @short_url %>
-  <%= label_tag 'short_url', "Your short URL: #{short_url_link(@short_url)}" %>
-<% end %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% if @short_url %>
+      <%= label_tag 'short_url', raw("Your short URL: #{short_url_link(@short_url)}"), class: 'short-url-label' %>
+    <% end %>
 
-<%= form_tag('/short_urls') do %>
-    <%= text_field_tag :original_url %>
-    <%= submit_tag 'Shortify URL' %>
-<% end %>
+    <%= form_tag('/short_urls') do %>
+      <div class="form-group">
+        <%= text_field_tag :original_url, nil, placeholder: 'Enter properly formatted url', class: 'form-control' %>
+      </div>
+      <%= submit_tag 'Shortify URL', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

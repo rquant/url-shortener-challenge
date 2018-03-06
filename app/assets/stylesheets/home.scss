@@ -1,0 +1,12 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  text-align: center;
+}
+
+.short-url-label {
+  font-weight: lighter;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
