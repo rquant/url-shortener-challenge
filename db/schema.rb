@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20180302050718) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "short_urls", force: :cascade do |t|
     t.string   "slug",                     null: false
     t.string   "original_url",             null: false
     t.integer  "visits",       default: 0
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.index ["slug"], name: "index_short_urls_on_slug"
+    t.index ["slug"], name: "index_short_urls_on_slug", using: :btree
   end
 
 end
