@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        short_url:
+          attributes:
+            original_url:
+              invalid: ' provided is invalid. Missing protocol? (e.g. http:// or https://)'
