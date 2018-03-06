@@ -11,10 +11,13 @@ class ShortUrlsController < ApplicationController
   end
 
   def redirect_to_original
-    if short_url = ShortUrl.find_by_slug(params[:slug])
+    result = TrackShortUrl.call(slug: params[:slug])
+
+    if result.success?
+      short_url = result.short_url
       redirect_to short_url.original_url
     else
-      flash.now[:error] = 'Unable to find URL to redirect to'
+      flash.now[:error] = result.message
       render :home
     end
   end
